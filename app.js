@@ -18,6 +18,7 @@ app.get("/api/users", usersList.getUsers);
 app.get("/api/users/:id", usersList.getUsersById);
 
 app.post("/api/users", usersList.postUsers);
+app.put("/api/users/:id", usersList.updateUsers);
 
 app.listen(port, (err) => {
   if (err) {
