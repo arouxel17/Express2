@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 
 const app = express();
+app.use(express.json());
 
 const port = process.env.APP_PORT ?? 5001;
 
@@ -15,6 +16,8 @@ const usersList = require("./usersList");
 
 app.get("/api/users", usersList.getUsers);
 app.get("/api/users/:id", usersList.getUsersById);
+
+app.post("/api/users", usersList.postUsers);
 
 app.listen(port, (err) => {
   if (err) {
